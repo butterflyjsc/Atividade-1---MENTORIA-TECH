@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class ConversorTemperatura {
+
+    public static void main(String[] args) {
+        // Objeto Scanner para receber a entrada do usuário
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("--- Conversor de Temperatura ---");
+        System.out.print("Digite a temperatura em graus Celsius (°C): ");
+
+        // Recebe a temperatura em Celsius do usuário
+        double celsius = scanner.nextDouble();
+
+        // --- Cálculos de Conversão ---
+
+        // 1. Conversão para Fahrenheit (°F)
+        // Fórmula: Fahrenheit (°F) = (Celsius (°C) × 9/5) + 32
+        // Nota: 9.0/5.0 garante que a divisão seja feita com números de ponto flutuante
+        double fahrenheit = (celsius * 9.0 / 5.0) + 32;
+
+        // 2. Conversão para Kelvin (K)
+        // Fórmula: Kelvin (K) = Celsius (°C) + 273.15
+        double kelvin = celsius + 273.15;
+
+        // --- Apresentação dos Resultados ---
+        System.out.println("\n*** Práticas - Resultados ***\n");
+
+        // Exibe o valor original em Celsius
+        System.out.printf("Temperatura em Celsius: %.1f °C\n", celsius);
+
+        // Exibe o valor convertido em Fahrenheit
+        System.out.printf("Temperatura em Fahrenheit: %.1f °F\n", fahrenheit);
+
+        // Exibe o valor convertido em Kelvin
+        System.out.printf("Temperatura em Kelvin: %.2f K\n", kelvin);
+
+        // Fechar o objeto Scanner
+        scanner.close();
+    }
+}
