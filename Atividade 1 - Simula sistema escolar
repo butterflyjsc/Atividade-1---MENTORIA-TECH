@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class SistemaEscolar {
+
+    public static void main(String[] args) {
+        // Objeto Scanner para receber a entrada do usuário
+        Scanner scanner = new Scanner(System.in);
+
+        // Array para armazenar as 8 notas anuais (N1, N2, N3, N4, N5, N6, N7, N8)
+        double[] notas = new double[8];
+
+        System.out.println("--- Sistema de Cálculo de Médias Anuais ---");
+
+        // Loop para solicitar as 8 notas ao usuário
+        for (int i = 0; i < 8; i++) {
+            // Ajusta o índice para exibir o número da nota de 1 a 8
+            System.out.print("Digite a " + (i + 1) + "ª nota anual: ");
+            // Lê o valor da nota e armazena no array
+            notas[i] = scanner.nextDouble();
+        }
+
+        // --- Cálculos das Médias ---
+
+        // 1. Médias Bimestrais (Média de 2 notas)
+        // 1º Bimestre: (N1 + N2) / 2
+        double mediaBimestre1 = (notas[0] + notas[1]) / 2.0;
+        // 2º Bimestre: (N3 + N4) / 2
+        double mediaBimestre2 = (notas[2] + notas[3]) / 2.0;
+        // 3º Bimestre: (N5 + N6) / 2
+        double mediaBimestre3 = (notas[4] + notas[5]) / 2.0;
+        // 4º Bimestre: (N7 + N8) / 2
+        double mediaBimestre4 = (notas[6] + notas[7]) / 2.0;
+
+        // 2. Médias Semestrais (Média das médias bimestrais do semestre)
+        // 1º Semestre: (MédiaBimestre1 + MédiaBimestre2) / 2
+        double mediaSemestre1 = (mediaBimestre1 + mediaBimestre2) / 2.0;
+        // 2º Semestre: (MédiaBimestre3 + MédiaBimestre4) / 2
+        double mediaSemestre2 = (mediaBimestre3 + mediaBimestre4) / 2.0;
+
+        // 3. Média Final (Média das médias semestrais)
+        // Média Final: (MédiaSemestre1 + MédiaSemestre2) / 2
+        double mediaFinal = (mediaSemestre1 + mediaSemestre2) / 2.0;
+
+        // --- Apresentação dos Resultados ---
+        System.out.println("\n*** Práticas - Resultados ***\n");
+
+        // 1º Semestre
+        System.out.printf("1º Bimestre: %.1f\n", mediaBimestre1);
+        System.out.printf("2º Bimestre: %.1f\n", mediaBimestre2);
+        System.out.printf("1º Semestre: %.1f\n", mediaSemestre1);
+        System.out.println("----------------------");
+
+        // 2º Semestre
+        System.out.printf("3º Bimestre: %.1f\n", mediaBimestre3);
+        System.out.printf("4º Bimestre: %.1f\n", mediaBimestre4);
+        System.out.printf("2º Semestre: %.1f\n", mediaSemestre2);
+        System.out.println("-----------------------");
+
+        // Média Final
+        System.out.printf("Média Final: %.1f\n", mediaFinal);
+
+        // Fechar o objeto Scanner
+        scanner.close();
+    }
+}
